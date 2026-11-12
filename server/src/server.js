@@ -18,7 +18,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: ['http://localhost:5173', 'https://tech-blog-xii9.vercel.app'],
+    origin: ['http://localhost:5173', 'https://tech-blog-1yrg.vercel.app'],
     credentials: true,
   })
 );
