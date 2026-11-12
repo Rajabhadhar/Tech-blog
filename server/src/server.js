@@ -18,7 +18,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
+    origin: ['http://localhost:5173', 'https://tech-blog-xii9.vercel.app'],
     credentials: true,
   })
 );
@@ -36,12 +36,11 @@ app.use('/api/v1/categories', categoryRoutes);
 app.use('/api/v1/posts', postRoutes);
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/upload', uploadRoutes);
-// Add this line so Express knows to serve the images publicly:
-app.use('/uploads', express.static('uploads'));
 
 // Make the uploads folder publicly accessible
 const __dirname = path.resolve();
 app.use('/uploads', express.static(path.join(__dirname, '/uploads')));
+
 // Fallback & Error Middlewares
 app.use(notFound);
 app.use(errorHandler);
