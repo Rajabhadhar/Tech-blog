@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+:root {
+  --bg-color: #f8fafc;
+  --surface-color: #ffffff;
+  --border-color: #e2e8f0;
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --tag-bg: #eff6ff;
+  --tag-text: #1d4ed8;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Global Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 2rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--primary);
+  color: #fff;
+  padding: 0.6rem 1.25rem;
+  border-radius: 6px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+.btn:hover {
+  background-color: var(--primary-hover);
+}
+
+
+/* ==========================================
+   RESPONSIVE MEDIA QUERIES FOR MOBILE & TABLETS
+   ================================---------- */
+
+@media screen and (max-width: 768px) {
+  /* Typography Scaling */
+  h1 {
+    font-size: 1.8rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  h2 {
+    font-size: 1.4rem !important;
+  }
+
+  /* Navbar Adjustments */
+  nav, .navbar-container {
+    padding: 0.75rem 1rem !important;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  /* Home Page Layout: Stack Hero Banner Grid */
+  section {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Home Page Main Layout Grid: Stack Articles & Trending Sidebar */
+  .container > div[style*="gridTemplateColumns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Post Detail View Container */
+  article.container {
+    padding: 1.5rem 1rem !important;
+  }
+
+  /* Form Inputs: Prevent iOS Safari Auto-Zoom on Focus */
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Prevent Mobile Browsers (iOS Safari/Chrome) from Auto-Zooming on Inputs */
+@media screen and (max-width: 768px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
+  /* Stack toolbars and flex rows vertically on very small screens */
+  div[style*="display: flex"] {
+    flex-wrap: wrap;
+  }
+}
